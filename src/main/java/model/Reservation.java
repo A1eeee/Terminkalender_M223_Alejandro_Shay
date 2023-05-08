@@ -16,7 +16,10 @@ public class Reservation {
         private String remark;
         private String participant;
 
-    public Reservation(int id, String firstName, String lastName, String eMail, Date date, String von, String bis, int room, String remark, String participant) {
+        private String publicKey;
+        private String privateKey;
+
+    public Reservation(int id, String firstName, String lastName, String eMail, String von, String bis, int room, String remark, String participant, String publicKey, String privateKey) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,6 +30,24 @@ public class Reservation {
         this.room = room;
         this.remark = remark;
         this.participant = participant;
+        this.publicKey = publicKey;
+        this.privateKey = privateKey;
+    }
+
+    public String getPublicKey() {
+        return publicKey;
+    }
+
+    public void setPublicKey(String publicKey) {
+        publicKey = publicKey;
+    }
+
+    public String getPrivateKey() {
+        return privateKey;
+    }
+
+    public void setPrivateKey(String privateKey) {
+        privateKey = privateKey;
     }
 
     public int getId() {

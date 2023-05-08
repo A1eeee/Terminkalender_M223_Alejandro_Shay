@@ -15,4 +15,12 @@ public class ReservationsListeBean {
     public ReservationsListeBean() {
         reservationsListe = new ReservationsListe();
     }
+
+    public ReservationsListe getReservationsListe() {
+        return reservationsListe;
+    }
+
+    public void setReservationsListe(ReservationsListe reservationsListe) {
+        this.reservationsListe = reservationsListe;
+    }
 }

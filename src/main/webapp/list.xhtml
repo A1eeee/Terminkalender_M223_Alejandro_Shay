@@ -6,6 +6,47 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <h:outputLabel value="Hello, world"/>
+    <h:dataTable value="#{reservationsListeBean.reservationsListe.reservationen}" var="res">
+        <h:column>
+            <f:facet name="header">Id</f:facet>
+            <h:outputText value="#{res.id}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">firstName</f:facet>
+            <h:outputText value="#{res.firstName}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">lastName</f:facet>
+            <h:outputText value="#{res.lastName}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">eMail</f:facet>
+            <h:outputText value="#{res.eMail}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">von - bis</f:facet>
+            <h:outputText value="#{res.von} - #{res.bis}" />
+        </h:column>
+        <h:column>
+            <f:facet name="header">room</f:facet>
+            <h:outputText value="#{res.room}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">remark</f:facet>
+            <h:outputText value="#{res.remark}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">participant</f:facet>
+            <h:outputText value="#{res.participant}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Private Key</f:facet>
+            <h:outputText value="#{res.privateKey}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Public Key</f:facet>
+            <h:outputText value="#{res.publicKey}"/>
+        </h:column>
+    </h:dataTable>
 </f:view>
 </html>
