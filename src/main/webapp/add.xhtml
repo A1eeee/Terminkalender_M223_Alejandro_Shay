@@ -6,6 +6,23 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <h:outputLabel value="Hello, world"/>
+    <h2><h:outputText value="Add Reservation"/> </h2>
+    <h:form id="addReservationForm">
+        <h:panelGrid id="grid" columns="2">
+            <h:outputLabel value="First Name: " for="firstName"/>
+            <h:inputText id="firstName" value="#{addBean.b.title}" required="true"/>
+            <h:outputLabel value="Author: " for="author"/>
+            <h:inputText id="author" value="#{addBean.b.author}"/>
+            <h:outputLabel value="Preis: " for="preis"/>
+            <h:inputText id="preis" value="#{addBean.b.preis}"/>
+            <h:outputLabel value="Verlag: " for="verlag"/>
+            <h:inputText id="verlag" value="#{addBean.b.verlag}"/>
+            <h:outputLabel value="ISBN: " for="isbn"/>
+            <h:inputText id="isbn" value="#{addBean.b.isbn}"/>
+
+        </h:panelGrid>
+        <h:commandButton id="save" value="Save" action="#{addBean.addBuch()}"/>
+        <h:commandButton id="abort" value="Abbrechen" action="list.xhtml"/>
+    </h:form>
 </f:view>
 </html>

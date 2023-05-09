@@ -12,6 +12,7 @@ public class ReservationsListeBean {
 
     private ReservationsListe reservationsListe;
 
+
     public ReservationsListeBean() {
         reservationsListe = new ReservationsListe();
     }

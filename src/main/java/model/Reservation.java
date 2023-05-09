@@ -5,10 +5,9 @@ import java.util.Date;
 
 public class Reservation {
 
-        private int id;
         private String firstName;
         private String lastName;
-        private String eMail;
+
         private Date date;
         private String von;
         private String bis;
@@ -19,11 +18,9 @@ public class Reservation {
         private String publicKey;
         private String privateKey;
 
-    public Reservation(int id, String firstName, String lastName, String eMail, String von, String bis, int room, String remark, int participant, String publicKey, String privateKey) {
-        this.id = id;
+    public Reservation(String firstName, String lastName,Date date, String von, String bis, int room, String remark, int participant, String publicKey, String privateKey) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.eMail = eMail;
         this.date = date;
         this.von = von;
         this.bis = bis;
@@ -32,6 +29,10 @@ public class Reservation {
         this.participant = participant;
         this.publicKey = publicKey;
         this.privateKey = privateKey;
+    }
+
+    public  Reservation(){
+
     }
 
     public String getPublicKey() {
@@ -50,13 +51,6 @@ public class Reservation {
         privateKey = privateKey;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -74,13 +68,6 @@ public class Reservation {
         this.lastName = lastName;
     }
 
-    public String geteMail() {
-        return eMail;
-    }
-
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
-    }
 
     public Date getDate() {
         return date;
