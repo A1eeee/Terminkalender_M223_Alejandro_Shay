@@ -1,5 +1,6 @@
 package controller;
 
+import model.ListKeys;
 import model.Reservation;
 import model.ReservationsListe;
 
@@ -17,6 +18,14 @@ public class AddBean {
 
     private Reservation reservation;
 
+    ListKeys publicKey = new ListKeys();
+    ListKeys privateKey = new ListKeys();
+
+    String publicK = publicKey.keyadd();
+    String privateK = privateKey.keyadd();
+
+
+
     public AddBean() {
         reservation = new Reservation();
     }
@@ -30,6 +39,8 @@ public class AddBean {
     }
 
     public String addReservation(){
+
+
         reservationsListeBean.getReservationsListe().add(reservation);
 
         return "list.xhtml";

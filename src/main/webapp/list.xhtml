@@ -12,20 +12,12 @@
 <h:body>
     <h:dataTable value="#{reservationsListeBean.reservationsListe.reservationen}" var="res">
         <h:column>
-            <f:facet name="header">Id</f:facet>
-            <h:outputText value="#{res.id}"/>
-        </h:column>
-        <h:column>
             <f:facet name="header">firstName</f:facet>
             <h:outputText value="#{res.firstName}"/>
         </h:column>
         <h:column>
             <f:facet name="header">lastName</f:facet>
             <h:outputText value="#{res.lastName}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">eMail</f:facet>
-            <h:outputText value="#{res.eMail}"/>
         </h:column>
         <h:column>
             <f:facet name="header">von - bis</f:facet>

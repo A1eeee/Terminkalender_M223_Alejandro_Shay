@@ -49,7 +49,7 @@ public class ListKeys {
         while (!temp) {
             String key = generateKey();
 
-            if (checkKey(key) == true) {
+            if (checkKey(key)) {
                 keyList.add(key);
                 return key;
             }
