@@ -14,12 +14,12 @@ public class Reservation {
         private String bis;
         private int room;
         private String remark;
-        private String participant;
+        private int participant;
 
         private String publicKey;
         private String privateKey;
 
-    public Reservation(int id, String firstName, String lastName, String eMail, String von, String bis, int room, String remark, String participant, String publicKey, String privateKey) {
+    public Reservation(int id, String firstName, String lastName, String eMail, String von, String bis, int room, String remark, int participant, String publicKey, String privateKey) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -122,11 +122,11 @@ public class Reservation {
         this.remark = remark;
     }
 
-    public String getParticipant() {
+    public int getParticipant() {
         return participant;
     }
 
-    public void setParticipant(String participant) {
+    public void setParticipant(int participant) {
         this.participant = participant;
     }
 }
