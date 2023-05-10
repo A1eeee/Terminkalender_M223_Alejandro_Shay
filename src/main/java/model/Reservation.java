@@ -40,7 +40,7 @@ public class Reservation {
     }
 
     public void setPublicKey(String publicKey) {
-        publicKey = publicKey;
+        this.publicKey = publicKey;
     }
 
     public String getPrivateKey() {
@@ -48,7 +48,7 @@ public class Reservation {
     }
 
     public void setPrivateKey(String privateKey) {
-        privateKey = privateKey;
+        this.privateKey = privateKey;
     }
 
 
