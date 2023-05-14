@@ -17,9 +17,6 @@ public class AddBean {
 
     private Reservation reservation;
 
-
-
-
     public AddBean() {
         reservation = new Reservation();
     }
@@ -37,7 +34,7 @@ public class AddBean {
 
         reservationsListeBean.getReservationsListe().addR(reservation);
 
-        return "list.xhtml";
+        return "List.xhtml";
     }
 
     public Reservation getReservation() {
