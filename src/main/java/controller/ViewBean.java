@@ -5,11 +5,15 @@ import model.Reservation;
 import model.ReservationsListe;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 @ManagedBean
 @RequestScoped
 public class ViewBean {
+
+    @ManagedProperty(value = "#{reservationsListeBean}")
+    private ReservationsListeBean reservationsListeBean;
 
     private String keyInput;
     private ListKeys listKeys;
@@ -19,20 +23,23 @@ public class ViewBean {
     private Reservation reservation;
 
     public ViewBean(){
-        reservation = new Reservation();
+        this.reservation = new Reservation();
     }
 
     public String CheckKey(){
 
-        if(keyInput.equals(getReservation().getPrivateKey()))
-        {
-            return "PrivateView.xhtml";
+        this.reservation = reservationsListeBean.getReservationsListe().sReservation(keyInput);
 
-        } else if (keyInput.equals(getReservation().getPublicKey())) {
-            return "PublicView.xhtml";
+        if(reservation != null){
+            if(reservation.getPrivateKey().equals(keyInput))
+            {
+                return "PrivateView.xhtml";
+
+            } else if (reservation.getPublicKey().equals(keyInput)) {
+                return "PublicView.xhtml";
+            }
         }
-
-        return null;
+        return "Home.xhtml";
     }
 
     public String getKeyInput() {
@@ -49,5 +56,13 @@ public class ViewBean {
 
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
+    }
+
+    public ReservationsListeBean getReservationsListeBean() {
+        return reservationsListeBean;
+    }
+
+    public void setReservationsListeBean(ReservationsListeBean reservationsListeBean) {
+        this.reservationsListeBean = reservationsListeBean;
     }
 }

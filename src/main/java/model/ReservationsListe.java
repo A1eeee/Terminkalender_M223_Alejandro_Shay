@@ -31,6 +31,21 @@ public class ReservationsListe {
         reservationen.remove(reservation);
     }
 
+    public Reservation sReservation(String key){
+
+        Iterator<Reservation> iterator = reservationen.iterator();
+
+        while(iterator.hasNext()){
+
+            Reservation keyR = iterator.next();
+
+            if(keyR.getPrivateKey().equals(key) || keyR.getPublicKey().equals(key)){
+                return keyR;
+            }
+
+        }
+        return null;
+    }
 
     public ArrayList<Reservation> getReservationen() {
         return reservationen;
@@ -38,6 +53,7 @@ public class ReservationsListe {
 
     public void setReservationen(ArrayList<Reservation> reservationen) {
         this.reservationen = reservationen;
+
     }
 
 
