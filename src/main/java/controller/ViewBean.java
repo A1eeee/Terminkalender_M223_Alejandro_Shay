@@ -7,9 +7,10 @@ import model.ReservationsListe;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class ViewBean {
 
     @ManagedProperty(value = "#{reservationsListeBean}")

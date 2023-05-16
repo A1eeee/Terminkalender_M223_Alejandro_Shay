@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: shayh
+  Date: 16.05.2023
+  Time: 16:24
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Edit</title>
+</h:head>
+
+<h:body>
+    <h2><h:outputText value="Edit Reservation"/> </h2>
+    <h:form id="addReservationForm">
+        <h:panelGrid id="grid" columns="2">
+            <h:outputLabel value="First Name: " for="firstName"/>
+            <h:inputText id="firstName" value="#{viewBean.reservation.firstName}" />
+            <h:outputLabel value="Last Name: " for="lastName"/>
+            <h:inputText id="lastName" value="#{viewBean.reservation.lastName}" />
+            <h:outputLabel value="Date: " for="date"/>
+            <h:inputText id="date" value="#{viewBean.reservation.date}">
+                <f:convertDateTime pattern="dd.mm.yyyy" type="date"/>
+            </h:inputText>
+            <h:outputLabel value="Von: " for="von"/>
+            <h:inputText id="von" value="#{viewBean.reservation.von}"/>
+            <h:outputLabel value="Bis: " for="bis"/>
+            <h:inputText id="bis" value="#{viewBean.reservation.bis}"/>
+            <h:outputText value="Room: " for="room"/>
+            <h:inputText id="room" value="#{viewBean.reservation.room}"/>
+            <h:outputText value="Remark: " for="remark"/>
+            <h:inputText id="remark" value="#{viewBean.reservation.remark}"/>
+            <h:outputText value="Participant: " for="participant"/>
+            <h:inputText id="participant" value="#{viewBean.reservation.participant}"/>
+        </h:panelGrid>
+        <h:commandButton id="abort" value="Abbrechen" action="List.xhtml"/>
+    </h:form>
+
+
+</h:body>
+
+</html>
