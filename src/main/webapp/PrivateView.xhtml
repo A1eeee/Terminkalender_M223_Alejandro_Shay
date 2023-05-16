@@ -10,14 +10,50 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
     <title>Private</title>
+    <link rel="stylesheet" type="text/css" href="styleSheet.css" />
 </h:head>
 
 <h:body>
-    <h:outputText value="H"/>
+    <h:dataTable value="#{viewBean.reservation}" var="res" styleClass="table">
+        <h:column>
+            <f:facet name="header">firstName</f:facet>
+            <h:outputText value="#{res.firstName}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">lastName</f:facet>
+            <h:outputText value="#{res.lastName}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">von - bis</f:facet>
+            <h:outputText value="#{res.von} - #{res.bis}" />
+        </h:column>
+        <h:column>
+            <f:facet name="header">room</f:facet>
+            <h:outputText value="#{res.room}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">remark</f:facet>
+            <h:outputText value="#{res.remark}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">participant</f:facet>
+            <h:outputText value="#{res.participant}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Public Key</f:facet>
+            <h:outputText value="#{res.publicKey}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Date</f:facet>
+            <h:outputText value="#{res.date}">
+                <f:convertDateTime pattern="dd.mm.yyyy"/>
+            </h:outputText>
+        </h:column>
+    </h:dataTable>
 </h:body>
 
 </html>
