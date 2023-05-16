@@ -5,12 +5,12 @@
   Date: 14.05.2023
   Time: 15:57
 -->
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
     <title>Private</title>
@@ -19,49 +19,51 @@
 
 <h:body>
     <h:form>
-        <h:column>
-            <h:outputLabel>firstName</h:outputLabel>
-            <h:outputText value="#{viewBean.reservation.firstName}"/>
-        </h:column>
-        <h:column>
-            <h:outputLabel>lastName</h:outputLabel>
-            <h:outputText value="#{viewBean.reservation.lastName}"/>
-        </h:column>
-        <h:column>
-            <h:outputLabel >von - bis</h:outputLabel>
-            <h:outputText value="#{viewBean.reservation.von} - #{viewBean.reservation.bis}" />
-        </h:column>
-        <h:column>
-            <h:outputLabel >room</h:outputLabel>
-            <h:outputText value="#{viewBean.reservation.room}"/>
-        </h:column>
-        <h:column>
-            <h:outputLabel >remark</h:outputLabel>
-            <h:outputText value="#{viewBean.reservation.remark}"/>
-        </h:column>
-        <h:column>
-            <h:outputLabel >participant</h:outputLabel>
-            <h:outputText value="#{viewBean.reservation.participant}"/>
-        </h:column>
-        <h:column>
-            <h:outputLabel >Public Key</h:outputLabel>
-            <h:outputText value="#{viewBean.reservation.publicKey}"/>
-        </h:column>
-        <h:column>
-            <h:outputLabel >Date</h:outputLabel>
-            <h:outputText value="#{viewBean.reservation.date}">
-                <f:convertDateTime pattern="dd.mm.yyyy"/>
-
-            </h:outputText>
-        </h:column>
+        <table>
+            <tr>
+                <th>First Name</th>
+                <td>#{viewBean.reservation.firstName}</td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td>#{viewBean.reservation.lastName}</td>
+            </tr>
+            <tr>
+                <th>von - bis</th>
+                <td>#{viewBean.reservation.von} - #{viewBean.reservation.bis}</td>
+            </tr>
+            <tr>
+                <th>Room</th>
+                <td>#{viewBean.reservation.room}</td>
+            </tr>
+            <tr>
+                <th>Remark</th>
+                <td>#{viewBean.reservation.remark}</td>
+            </tr>
+            <tr>
+                <th>Participant</th>
+                <td>#{viewBean.reservation.participant}</td>
+            </tr>
+            <tr>
+                <th>Public Key</th>
+                <td>#{viewBean.reservation.publicKey}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>
+                    <h:outputText value="#{viewBean.reservation.date}">
+                        <f:convertDateTime pattern="dd.MM.yyyy"/>
+                    </h:outputText>
+                </td>
+            </tr>
+        </table>
     </h:form>
 
     <h:form>
         <h:commandButton id="edit" value="Edit" action="#{viewBean.startEdit()}" />
-        <h:commandButton id="delet" value="Delete" action="#{viewBean.deleteRes()}" />
+        <h:commandButton id="delete" value="Delete" action="#{viewBean.deleteRes()}" />
         <h:commandButton id="abort" value="Abbrechen" action="Home.xhtml" />
     </h:form>
-
 </h:body>
 
 </html>
