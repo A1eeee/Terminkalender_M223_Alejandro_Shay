@@ -40,7 +40,9 @@
             <h:outputText value="Participant: " for="participant"/>
             <h:inputText id="participant" value="#{viewBean.reservation.participant}"/>
         </h:panelGrid>
-        <h:commandButton id="abort" value="Abbrechen" action="List.xhtml"/>
+        <h:commandButton id="Save" value="Save" action="#{viewBean.save()}"/>
+        <br/>
+        <h:commandButton id="abort" value="Abbrechen" action="List.xhtml" immediate="true"/>
     </h:form>
 
 

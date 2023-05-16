@@ -18,46 +18,48 @@
 </h:head>
 
 <h:body>
-    <h:dataTable value="#{viewBean.reservation}" var="res" styleClass="table">
+    <h:form>
         <h:column>
-            <f:facet name="header">firstName</f:facet>
-            <h:outputText value="#{res.firstName}"/>
+            <h:outputLabel>firstName</h:outputLabel>
+            <h:outputText value="#{viewBean.reservation.firstName}"/>
         </h:column>
         <h:column>
-            <f:facet name="header">lastName</f:facet>
-            <h:outputText value="#{res.lastName}"/>
+            <h:outputLabel>lastName</h:outputLabel>
+            <h:outputText value="#{viewBean.reservation.lastName}"/>
         </h:column>
         <h:column>
-            <f:facet name="header">von - bis</f:facet>
-            <h:outputText value="#{res.von} - #{res.bis}" />
+            <h:outputLabel >von - bis</h:outputLabel>
+            <h:outputText value="#{viewBean.reservation.von} - #{viewBean.reservation.bis}" />
         </h:column>
         <h:column>
-            <f:facet name="header">room</f:facet>
-            <h:outputText value="#{res.room}"/>
+            <h:outputLabel >room</h:outputLabel>
+            <h:outputText value="#{viewBean.reservation.room}"/>
         </h:column>
         <h:column>
-            <f:facet name="header">remark</f:facet>
-            <h:outputText value="#{res.remark}"/>
+            <h:outputLabel >remark</h:outputLabel>
+            <h:outputText value="#{viewBean.reservation.remark}"/>
         </h:column>
         <h:column>
-            <f:facet name="header">participant</f:facet>
-            <h:outputText value="#{res.participant}"/>
+            <h:outputLabel >participant</h:outputLabel>
+            <h:outputText value="#{viewBean.reservation.participant}"/>
         </h:column>
         <h:column>
-            <f:facet name="header">Public Key</f:facet>
-            <h:outputText value="#{res.publicKey}"/>
+            <h:outputLabel >Public Key</h:outputLabel>
+            <h:outputText value="#{viewBean.reservation.publicKey}"/>
         </h:column>
         <h:column>
-            <f:facet name="header">Date</f:facet>
-            <h:outputText value="#{res.date}">
+            <h:outputLabel >Date</h:outputLabel>
+            <h:outputText value="#{viewBean.reservation.date}">
                 <f:convertDateTime pattern="dd.mm.yyyy"/>
 
             </h:outputText>
         </h:column>
-    </h:dataTable>
+    </h:form>
 
     <h:form>
-        <h:commandButton value="Edit" action="Edit" />
+        <h:commandButton id="edit" value="Edit" action="#{viewBean.startEdit()}" />
+        <h:commandButton id="delet" value="Delete" action="#{viewBean.deleteRes()}" />
+        <h:commandButton id="abort" value="Abbrechen" action="Home.xhtml" />
     </h:form>
 
 </h:body>

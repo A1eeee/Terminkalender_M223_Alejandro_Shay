@@ -43,6 +43,21 @@ public class ViewBean {
         return "Home.xhtml";
     }
 
+    public String deleteRes(){
+        reservationsListeBean.getReservationsListe().delete(reservation);
+        return "Home.xhtml";
+    }
+
+    public String startEdit(){
+
+        return "Edit.xhtml";
+    }
+
+    public String save(){
+        reservationsListeBean.getReservationsListe().addModify(reservation);
+        return "PrivateView.xhtml";
+    }
+
     public String getKeyInput() {
         return keyInput;
     }

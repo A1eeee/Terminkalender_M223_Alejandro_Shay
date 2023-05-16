@@ -18,18 +18,22 @@ public class ReservationsListe {
             reservationen = new ArrayList<>();
 
     }
-
+    public void delete(Reservation reservation){
+        reservationen.remove(reservation);
+    }
     public void addR(Reservation reservation){
 
         reservation.setPublicKey(listKeys.keyadd());
         reservation.setPrivateKey(listKeys.keyadd());
-        System.out.println("publickey:" + reservation.getPublicKey());
         reservationen.add(reservation);
     }
 
-    public void delete(Reservation reservation){
+    public void addModify(Reservation reservation){
         reservationen.remove(reservation);
+        reservationen.add(reservation);
     }
+
+
 
     public Reservation sReservation(String key){
 
