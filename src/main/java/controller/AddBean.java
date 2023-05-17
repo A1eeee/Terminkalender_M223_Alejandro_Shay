@@ -54,7 +54,7 @@ public class AddBean {
 
         reservationsListeBean.getReservationsListe().addR(reservation);
 
-        return "List.xhtml";
+        return "Home.xhtml";
     }
 
     public Reservation getReservation() {

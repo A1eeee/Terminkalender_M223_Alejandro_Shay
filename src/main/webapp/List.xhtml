@@ -4,50 +4,98 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
+    <h:outputStylesheet>
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 50px;
+        }
 
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: #f0f0f0;
+        }
+    </h:outputStylesheet>
+    <h:outputScript library="js" name="HomeIndex.js" target="head" />
 </h:head>
 
 <h:body>
-    <h:dataTable value="#{reservationsListeBean.reservationsListe.reservationen}" var="res">
-        <h:column>
-            <f:facet name="header">firstName</f:facet>
-            <h:outputText value="#{res.firstName}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">lastName</f:facet>
-            <h:outputText value="#{res.lastName}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">von - bis</f:facet>
-            <h:outputText value="#{res.von} - #{res.bis}" />
-        </h:column>
-        <h:column>
-            <f:facet name="header">room</f:facet>
-            <h:outputText value="#{res.room}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">remark</f:facet>
-            <h:outputText value="#{res.remark}"/>
-        </h:column>
+    <script type="text/javascript">
+        function password() {
+            let pw = "Bene1234!";
+            const pwV = prompt("Enter Password");
 
-        <h:column>
-            <f:facet name="header">Public Key</f:facet>
-            <h:outputText value="#{res.publicKey}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">Private Key</f:facet>
-            <h:outputText value="#{res.privateKey}"/>
-        </h:column>
-        <h:column>
-         <f:facet name="header">participant</f:facet>
-            <h:outputText value="#{res.participant}"/>
-        </h:column>
-    </h:dataTable>
+            if (pwV == pw) {
+                return true;
+            } else {
+                let path = 'Home.xhtml';
+                window.location.href = path;
+            }
+        }
+
+        password();
+    </script>
+
     <h:form>
-        <h:commandButton id="abort" value="Abbrechen" action="Home.xhtml"/>
+        <p:panel header="All Reservations">
+            <p:panelGrid columns="1" styleClass="grid-container">
+                <p:row>
+                    <p:column>
+                        <p:dataTable value="#{reservationsListeBean.reservationsListe.reservationen}" var="res">
+                            <p:column headerText="First Name">
+                                #{res.firstName}
+                            </p:column>
+                            <p:column headerText="Last Name">
+                                #{res.lastName}
+                            </p:column>
+                            <p:column headerText="Date">
+                                <p:outputLabel value="#{res.date}">
+                                    <f:convertDateTime pattern="dd.MM.yyyy" />
+                                </p:outputLabel>
+                            </p:column>
+                            <p:column headerText="von - bis">
+                                #{res.von} - #{res.bis}
+                            </p:column>
+                            <p:column headerText="Room">
+                                #{res.room}
+                            </p:column>
+                            <p:column headerText="Remark">
+                                #{res.remark}
+                            </p:column>
+                            <p:column headerText="Public Key">
+                                #{res.publicKey}
+                            </p:column>
+                            <p:column headerText="Private Key">
+                                #{res.privateKey}
+                            </p:column>
+                            <p:column headerText="Participant">
+                                #{res.participant}
+                            </p:column>
+                        </p:dataTable>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column>
+                        <p:commandButton id="abort" value="Back" action="Home.xhtml" style="background-color: red"/>
+                    </p:column>
+                </p:row>
+            </p:panelGrid>
+        </p:panel>
     </h:form>
-
 </h:body>
 </html>
+
+
+

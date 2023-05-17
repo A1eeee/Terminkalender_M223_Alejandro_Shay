@@ -28,6 +28,7 @@
             background-color: #f0f0f0;
         }
     </h:outputStylesheet>
+    <h:outputScript library="js" name="HomeIndex.js" target="head" />
 </h:head>
 
 <h:body>
@@ -37,6 +38,10 @@
             <h:link value="Input" outcome="InputKey" styleClass="nav-link"/>
             <h:link value="List" outcome="List" styleClass="nav-link"/>
         </div>
+
+        <h:outputScript target="body">
+            displayKeys("#{addBean.reservation.publicKey}", "#{addBean.reservation.privateKey}");
+        </h:outputScript>
     </p:panel>
 </h:body>
 </html>
