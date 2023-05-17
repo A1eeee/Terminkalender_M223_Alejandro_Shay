@@ -11,14 +11,14 @@ public class Reservation {
         private Date date;
         private String von;
         private String bis;
-        private int room;
+        private String room;
         private String remark;
-        private int participant;
+        private String participant;
 
         private String publicKey;
         private String privateKey;
 
-    public Reservation(String firstName, String lastName,Date date, String von, String bis, int room, String remark, int participant, String publicKey, String privateKey) {
+    public Reservation(String firstName, String lastName,Date date, String von, String bis, String room, String remark, String participant, String publicKey, String privateKey) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.date = date;
@@ -93,11 +93,11 @@ public class Reservation {
         this.bis = bis;
     }
 
-    public int getRoom() {
+    public String getRoom() {
         return room;
     }
 
-    public void setRoom(int room) {
+    public void setRoom(String room) {
         this.room = room;
     }
 
@@ -109,11 +109,11 @@ public class Reservation {
         this.remark = remark;
     }
 
-    public int getParticipant() {
+    public String getParticipant() {
         return participant;
     }
 
-    public void setParticipant(int participant) {
+    public void setParticipant(String participant) {
         this.participant = participant;
     }
 }

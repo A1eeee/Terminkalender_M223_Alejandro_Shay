@@ -4,35 +4,50 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
-
+    <link rel="stylesheet" type="text/css" href="styleSheet.css" />
 </h:head>
 <h:body>
-    <h2><h:outputText value="Add Reservation"/> </h2>
     <h:form id="addReservationForm">
+        <p:panel header="Add Reservation">
+
         <h:panelGrid id="grid" columns="2">
-            <h:outputLabel value="First Name: " for="firstName"/>
-            <h:inputText id="firstName" value="#{addBean.reservation.firstName}" />
-            <h:outputLabel value="Last Name: " for="lastName"/>
-            <h:inputText id="lastName" value="#{addBean.reservation.lastName}" />
-            <h:outputLabel value="Date: " for="date"/>
-            <h:inputText id="date" value="#{addBean.reservation.date}">
-                <f:convertDateTime pattern="dd.mm.yyyy" type="date"/>
-            </h:inputText>
-            <h:outputLabel value="Von: " for="von"/>
-            <h:inputText id="von" value="#{addBean.reservation.von}"/>
-            <h:outputLabel value="Bis: " for="bis"/>
-            <h:inputText id="bis" value="#{addBean.reservation.bis}"/>
-            <h:outputText value="Room: " for="room"/>
-            <h:inputText id="room" value="#{addBean.reservation.room}"/>
-            <h:outputText value="Remark: " for="remark"/>
-            <h:inputText id="remark" value="#{addBean.reservation.remark}"/>
-            <h:outputText value="Participant: " for="participant"/>
-            <h:inputText id="participant" value="#{addBean.reservation.participant}"/>
-        </h:panelGrid>
-        <h:commandButton id="save" value="Save" action="#{addBean.addReservation()}"/>
-        <h:commandButton id="abort" value="Abbrechen" action="List.xhtml"/>
+                <p:outputLabel value="First Name:" for="firstName"/>
+                <p:inputText id="firstName" value="#{addBean.reservation.firstName}" required="true" requiredMessage="First Name is required" />
+                <p:outputLabel value="Last Name:" for="lastName"/>
+                <p:inputText id="lastName" value="#{addBean.reservation.lastName}" required="true" requiredMessage="Last Name is required" />
+                <p:outputLabel value="Date:" for="date"/>
+                <p:calendar id="date" value="#{addBean.reservation.date}" pattern="dd.MM.yyyy" required="true" requiredMessage="Date is required"/>
+                <p:outputLabel value="From:" for="von"/>
+                <p:inputMask id="von" value="#{addBean.reservation.von}" mask="99:99" validateMask="true" required="true" requiredMessage="From is required"/>
+                <p:outputLabel value="Until:" for="bis"/>
+                <p:inputMask id="bis" value="#{addBean.reservation.bis}" mask="99:99" validateMask="true" required="true" requiredMessage="Until is required"/>
+                <p:outputLabel value="Room:" for="room"/>
+                <p:selectOneMenu id="room" value="#{addBean.reservation.room}" required="true" requiredMessage="Room is required">
+                    <f:selectItem itemLabel="Select a room" itemValue="" />
+                    <f:selectItem itemLabel="Room 1" itemValue="Room 1" disabled="#{addBean.isRoomSelected('Room 1')}" />
+                    <f:selectItem itemLabel="Room 2" itemValue="Room 2" disabled="#{addBean.isRoomSelected('Room 2')}" />
+                    <f:selectItem itemLabel="Room 3" itemValue="Room 3" disabled="#{addBean.isRoomSelected('Room 3')}" />
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Remark:" for="remark"/>
+                <p:inputTextarea id="remark" value="#{addBean.reservation.remark}" rows="3" cols="30"/>
+                <p:outputLabel value="Participant:" for="participant"/>
+                <p:inputTextarea id="participant" value="#{addBean.reservation.participant}" required="true" requiredMessage="Participant is required"/>
+
+
+
+            </h:panelGrid>
+            <p:spacer height="10" />
+            <p:commandButton id="save" value="Save" action="#{addBean.addReservation()}" update="@form" styleClass="save-button" />
+            <p:spacer width="10" height="1" />
+            <p:commandButton id="abort" value="Back" action="Home.xhtml" immediate="true" style="background-color: red"/>
+        </p:panel>
     </h:form>
 </h:body>
 </html>
+
+
+

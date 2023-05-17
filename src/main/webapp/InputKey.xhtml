@@ -10,7 +10,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
     <title>KeyInput</title>
@@ -18,11 +19,15 @@
 
 <h:body>
     <h:form>
-        <h:outputLabel value="Input:"/>
-        <h:inputText value="#{viewBean.keyInput}"/>
-        <h:commandButton value="Send" action="#{viewBean.CheckKey()}"/>
+        <p:panel header="Input">
+            <h:outputLabel value="Input: "/>
+            <p:inputText value="#{viewBean.keyInput}"/>
+            <p:spacer width="10" height="1" />
+            <p:commandButton value="Send" action="#{viewBean.CheckKey()}"/>
+            <p:spacer width="10" height="1" />
+            <p:commandButton value="Back" action="Home.xhtml" style="background-color: red"/>
+        </p:panel>
     </h:form>
-
 </h:body>
 
 </html>

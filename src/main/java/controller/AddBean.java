@@ -7,6 +7,8 @@ import model.ReservationsListe;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import java.util.Iterator;
+import java.util.List;
 
 @ManagedBean
 @RequestScoped
@@ -16,6 +18,8 @@ public class AddBean {
     private ReservationsListeBean reservationsListeBean;
 
     private Reservation reservation;
+
+    private ReservationsListe reservationsListe;
 
     public AddBean() {
         reservation = new Reservation();
@@ -28,6 +32,22 @@ public class AddBean {
     public void setReservationsListeBean(ReservationsListeBean reservationsListeBean) {
         this.reservationsListeBean = reservationsListeBean;
     }
+
+    public boolean isRoomSelected(String room) {
+        List<Reservation> existingReservations = getReservationsListeBean().getReservationsListe().getReservationen();
+        Iterator<Reservation> iterator = existingReservations.iterator();
+        while (iterator.hasNext()) {
+            Reservation existingReservation = iterator.next();
+
+            if (existingReservation.getRoom().equals(room)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
 
     public String addReservation(){
 

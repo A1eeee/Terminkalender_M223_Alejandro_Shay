@@ -5,51 +5,44 @@
   Date: 14.05.2023
   Time: 15:57
 -->
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
     <title>Public</title>
-    <link rel="stylesheet" type="text/css" href="styleSheet.css" />
 </h:head>
 
 <h:body>
-    <h:dataTable value="#{viewBean.reservation}" var="res" styleClass="table">
-        <h:column>
-            <f:facet name="header">firstName</f:facet>
-            <h:outputText value="#{res.firstName}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">lastName</f:facet>
-            <h:outputText value="#{res.lastName}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">von - bis</f:facet>
-            <h:outputText value="#{res.von} - #{res.bis}" />
-        </h:column>
-        <h:column>
-            <f:facet name="header">room</f:facet>
-            <h:outputText value="#{res.room}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">remark</f:facet>
-            <h:outputText value="#{res.remark}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">participant</f:facet>
-            <h:outputText value="#{res.participant}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">Date</f:facet>
-            <h:outputText value="#{res.date}">
-                <f:convertDateTime pattern="dd.mm.yyyy"/>
-            </h:outputText>
-        </h:column>
-    </h:dataTable>
+    <h:form>
+        <p:panel header="Reservation Details">
+            <p:panelGrid columns="2" layout="grid">
+                <p:outputLabel for="firstName" value="First Name:" />
+                <p:outputLabel id="firstName" value="#{viewBean.reservation.firstName}" />
+                <p:outputLabel for="lastName" value="Last Name:" />
+                <p:outputLabel id="lastName" value="#{viewBean.reservation.lastName}" />
+                <p:outputLabel for="date" value="Date:" />
+                <p:outputLabel id="date" value="#{viewBean.reservation.date}">
+                    <f:convertDateTime pattern="dd.MM.yyyy" />
+                </p:outputLabel>
+                <p:outputLabel for="fromUntil" value="From - Until:" />
+                <p:outputLabel id="fromUntil" value="#{viewBean.reservation.von} - #{viewBean.reservation.bis}" />
+                <p:outputLabel for="room" value="Room:" />
+                <p:outputLabel id="room" value="#{viewBean.reservation.room}" />
+                <p:outputLabel for="remark" value="Remark:" />
+                <p:outputLabel id="remark" value="#{viewBean.reservation.remark}" />
+                <p:outputLabel for="participant" value="Participant:" />
+                <p:outputLabel id="participant" value="#{viewBean.reservation.participant}" />
+            </p:panelGrid>
+            <p:commandButton id="abort" value="Abbrechen" action="Home.xhtml" style="background-color: red"/>
+        </p:panel>
+    </h:form>
+
+
 </h:body>
 
 </html>
