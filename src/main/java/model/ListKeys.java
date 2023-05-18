@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
-
 public class ListKeys {
 
     private ArrayList<String> keyList;
@@ -13,9 +12,10 @@ public class ListKeys {
         this.keyList = new ArrayList<>();
     }
 
+    // Generiert einen zufälligen Schlüssel
     private String generateKey(){
-        int leftLimit = 48; // numeral '0'
-        int rightLimit = 122; // letter 'z'
+        int leftLimit = 48; // Zahl '0'
+        int rightLimit = 122; // Buchstabe 'z'
         int targetStringLength = 10;
         Random random = new Random();
 
@@ -28,6 +28,7 @@ public class ListKeys {
         return generatedString;
     }
 
+    // Überprüft, ob der Schlüssel bereits in der Liste vorhanden ist
     private boolean checkKey(String keyL)
     {
         Iterator<String> it = keyList.iterator();
@@ -37,12 +38,13 @@ public class ListKeys {
             String key = it.next();
             if(key.equals(keyL))
             {
-                return false;
+                return false; // Schlüssel bereits vorhanden
             }
         }
-        return true;
+        return true; // Schlüssel ist einzigartig
     }
 
+    // Generiert einen eindeutigen Schlüssel und fügt ihn der Liste hinzu
     public String keyadd(){
         boolean temp = false;
 
@@ -65,3 +67,4 @@ public class ListKeys {
         this.keyList = keyList;
     }
 }
+

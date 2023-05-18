@@ -5,20 +5,21 @@ import java.util.Date;
 
 public class Reservation {
 
-        private String firstName;
-        private String lastName;
+    private String firstName;
+    private String lastName;
 
-        private Date date;
-        private String von;
-        private String bis;
-        private String room;
-        private String remark;
-        private String participant;
+    private Date date;
+    private String von;
+    private String bis;
+    private String room;
+    private String remark;
+    private String participant;
 
-        private String publicKey;
-        private String privateKey;
+    private String publicKey;
+    private String privateKey;
 
-    public Reservation(String firstName, String lastName,Date date, String von, String bis, String room, String remark, String participant, String publicKey, String privateKey) {
+    // Konstruktor, der alle Eigenschaften der Reservierung initialisiert
+    public Reservation(String firstName, String lastName, Date date, String von, String bis, String room, String remark, String participant, String publicKey, String privateKey) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.date = date;
@@ -31,9 +32,11 @@ public class Reservation {
         this.privateKey = privateKey;
     }
 
-    public  Reservation(){
-
+    // Standardkonstruktor
+    public Reservation() {
     }
+
+    // Getter und Setter für die Eigenschaften der Reservierung
 
     public String getPublicKey() {
         return publicKey;
@@ -51,7 +54,6 @@ public class Reservation {
         this.privateKey = privateKey;
     }
 
-
     public String getFirstName() {
         return firstName;
     }
@@ -67,7 +69,6 @@ public class Reservation {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
 
     public Date getDate() {
         return date;
@@ -117,3 +118,4 @@ public class Reservation {
         this.participant = participant;
     }
 }
+

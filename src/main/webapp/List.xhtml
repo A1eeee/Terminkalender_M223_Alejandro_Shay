@@ -13,19 +13,20 @@
 <h:body>
     <script type="text/javascript">
         function password() {
-            let pw = "Bene1234!";
-            const pwV = prompt("Enter Password");
+            let pw = "Bene1234!"; // Passwort für die Überprüfung
+            const pwV = prompt("Enter Password"); // Eingabeaufforderung für das Passwort
 
-            if (pwV == pw) {
-                return true;
+            if (pwV == pw) { // Überprüfung, ob das eingegebene Passwort korrekt ist
+                return true; // Rückgabewert true, wenn das Passwort korrekt ist
             } else {
                 let path = 'Home.xhtml';
-                window.location.href = path;
+                window.location.href = path; // Weiterleitung zur Home-Seite, wenn das Passwort falsch ist
             }
         }
 
-        password();
+        password(); // Aufruf der password-Funktion beim Laden der Seite
     </script>
+
 
     <h:form>
         <p:panel header="All Reservations">

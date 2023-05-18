@@ -33,6 +33,7 @@ public class AddBean {
         this.reservationsListeBean = reservationsListeBean;
     }
 
+    // Überprüft, ob ein Raum bereits ausgewählt  | War eine Idee die schluss endlich nicht Funktionierte, wurde im Projekt gelessen für Zukünftliche versuche oder die Idee weiter zu entwickeln.
     public boolean isRoomSelected(String room) {
         List<Reservation> existingReservations = getReservationsListeBean().getReservationsListe().getReservationen();
         Iterator<Reservation> iterator = existingReservations.iterator();
@@ -46,15 +47,12 @@ public class AddBean {
         return true;
     }
 
-
-
-
+    // Fügt eine neue Reservierung hinzu
     public String addReservation(){
-
-
+        // Fügt die Reservierung der Reservationsliste hinzu, die im ReservationsListeBean verwaltet wird
         reservationsListeBean.getReservationsListe().addR(reservation);
 
-        return "Home.xhtml";
+        return "Home.xhtml"; // Gibt den Navigationsfall zurück, um zur Home-Seite zu gelangen
     }
 
     public Reservation getReservation() {
@@ -65,3 +63,4 @@ public class AddBean {
         this.reservation = reservation;
     }
 }
+

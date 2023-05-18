@@ -8,48 +8,46 @@ import java.util.Iterator;
 public class ReservationsListe {
 
     private ArrayList<Reservation> reservationen;
-
-
     private ListKeys listKeys;
 
-    public ReservationsListe()
-    {
-            listKeys = new ListKeys();
-            reservationen = new ArrayList<>();
-
+    public ReservationsListe() {
+        listKeys = new ListKeys();
+        reservationen = new ArrayList<>();
     }
-    public void delete(Reservation reservation){
+
+    // Methode zum Löschen einer Reservierung aus der Liste
+    public void delete(Reservation reservation) {
         reservationen.remove(reservation);
     }
-    public void addR(Reservation reservation){
 
+    // Methode zum Hinzufügen einer Reservierung zur Liste
+    public void addR(Reservation reservation) {
         reservation.setPublicKey(listKeys.keyadd());
         reservation.setPrivateKey(listKeys.keyadd());
         reservationen.add(reservation);
     }
 
-    public void addModify(Reservation reservation){
+    // Methode zum Modifizieren einer vorhandenen Reservierung in der Liste
+    public void addModify(Reservation reservation) {
         reservationen.remove(reservation);
         reservationen.add(reservation);
     }
 
-
-
-    public Reservation sReservation(String key){
-
+    // Methode zum Suchen einer Reservierung anhand des Schlüssels (öffentlicher oder privater Schlüssel)
+    public Reservation sReservation(String key) {
         Iterator<Reservation> iterator = reservationen.iterator();
 
-        while(iterator.hasNext()){
-
+        while (iterator.hasNext()) {
             Reservation keyR = iterator.next();
 
-            if(keyR.getPrivateKey().equals(key) || keyR.getPublicKey().equals(key)){
+            if (keyR.getPrivateKey().equals(key) || keyR.getPublicKey().equals(key)) {
                 return keyR;
             }
-
         }
         return null;
     }
+
+    // Getter und Setter für die Eigenschaften der Reservierungsliste
 
     public ArrayList<Reservation> getReservationen() {
         return reservationen;
@@ -57,8 +55,6 @@ public class ReservationsListe {
 
     public void setReservationen(ArrayList<Reservation> reservationen) {
         this.reservationen = reservationen;
-
     }
-
-
 }
+

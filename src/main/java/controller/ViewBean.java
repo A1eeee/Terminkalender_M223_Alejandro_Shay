@@ -27,35 +27,37 @@ public class ViewBean {
         this.reservation = new Reservation();
     }
 
+    // Überprüft den Schlüssel und navigiert entsprechend
     public String CheckKey(){
-
         this.reservation = reservationsListeBean.getReservationsListe().sReservation(keyInput);
 
         if(reservation != null){
             if(reservation.getPrivateKey().equals(keyInput))
             {
-                return "PrivateView.xhtml";
+                return "PrivateView.xhtml"; // Navigiert zur privaten Ansicht
 
             } else if (reservation.getPublicKey().equals(keyInput)) {
-                return "PublicView.xhtml";
+                return "PublicView.xhtml"; // Navigiert zur öffentlichen Ansicht
             }
         }
-        return "Home.xhtml";
+        return "Home.xhtml"; // Navigiert zur Startseite
     }
 
+    // Löscht eine Reservierung
     public String deleteRes(){
         reservationsListeBean.getReservationsListe().delete(reservation);
-        return "Home.xhtml";
+        return "Home.xhtml"; // Navigiert zur Startseite
     }
 
+    // Startet den Bearbeitungsmodus für eine Reservierung
     public String startEdit(){
-
-        return "Edit.xhtml";
+        return "Edit.xhtml"; // Navigiert zur Bearbeitungsseite
     }
 
+    // Speichert die bearbeitete Reservierung
     public String save(){
         reservationsListeBean.getReservationsListe().addModify(reservation);
-        return "PrivateView.xhtml";
+        return "PrivateView.xhtml"; // Navigiert zur privaten Ansicht
     }
 
     public String getKeyInput() {
@@ -82,3 +84,4 @@ public class ViewBean {
         this.reservationsListeBean = reservationsListeBean;
     }
 }
+
