@@ -29,9 +29,9 @@
                 <p:outputLabel value="Date: " for="date"/>
                 <p:calendar id="date" value="#{viewBean.reservation.date}" pattern="dd.MM.yyyy" />
                 <p:outputLabel value="From: " for="von"/>
-                <p:inputText id="von" value="#{viewBean.reservation.von}"/>
+                <p:inputMask id="von" value="#{viewBean.reservation.von}" mask="99:99"/>
                 <p:outputLabel value="Until: " for="bis"/>
-                <p:inputText id="bis" value="#{viewBean.reservation.bis}"/>
+                <p:inputMask id="bis" value="#{viewBean.reservation.bis}" mask="99:99"/>
                 <p:outputLabel value="Remark: " for="remark"/>
                 <p:inputTextarea id="remark" value="#{viewBean.reservation.remark}" rows="3" cols="30">
                     <f:validateLength minimum="10" maximum="200" />
