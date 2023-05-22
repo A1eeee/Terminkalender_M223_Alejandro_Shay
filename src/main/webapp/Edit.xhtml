@@ -33,9 +33,13 @@
                 <p:outputLabel value="Until: " for="bis"/>
                 <p:inputText id="bis" value="#{viewBean.reservation.bis}"/>
                 <p:outputLabel value="Remark: " for="remark"/>
-                <p:inputText id="remark" value="#{viewBean.reservation.remark}"/>
+                <p:inputTextarea id="remark" value="#{viewBean.reservation.remark}" rows="3" cols="30">
+                    <f:validateLength minimum="10" maximum="200" />
+                </p:inputTextarea>
                 <p:outputLabel value="Participant: " for="participant"/>
-                <p:inputText id="participant" value="#{viewBean.reservation.participant}"/>
+                <p:inputTextarea id="participant" value="#{viewBean.reservation.participant}" rows="3" cols="30">
+                    <f:validateRegex pattern="^[a-zA-Z,]+$" />
+                </p:inputTextarea>
         </p:panelGrid>
             <p:spacer width="10" height="1" />
         <p:commandButton id="Save" value="Save" action="#{viewBean.save()}"/>

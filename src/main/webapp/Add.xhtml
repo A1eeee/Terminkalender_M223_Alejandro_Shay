@@ -36,9 +36,13 @@
                 </p:selectOneMenu>
 
                 <p:outputLabel value="Remark:" for="remark"/>
-                <p:inputTextarea id="remark" value="#{addBean.reservation.remark}" rows="3" cols="30"/>
+                <p:inputTextarea id="remark" value="#{addBean.reservation.remark}" rows="3" cols="30" required="false">
+                    <f:validateLength minimum="10" maximum="200" />
+                </p:inputTextarea>
                 <p:outputLabel value="Participant:" for="participant"/>
-                <p:inputTextarea id="participant" value="#{addBean.reservation.participant}" required="true" requiredMessage="Participant is required"/>
+                <p:inputTextarea id="participant" value="#{addBean.reservation.participant}" required="true" requiredMessage="Participant is required" rows="3" cols="30">
+                    <f:validateRegex pattern="^[a-zA-Z,]+$" />
+                </p:inputTextarea>
 
 
 
