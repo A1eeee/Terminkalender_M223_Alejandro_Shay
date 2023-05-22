@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Reservation {
@@ -8,7 +9,7 @@ public class Reservation {
     private String firstName;
     private String lastName;
 
-    private Date date;
+    private LocalDate date;
     private String von;
     private String bis;
     private String room;
@@ -19,7 +20,7 @@ public class Reservation {
     private String privateKey;
 
     // Konstruktor, der alle Eigenschaften der Reservierung initialisiert
-    public Reservation(String firstName, String lastName, Date date, String von, String bis, String room, String remark, String participant, String publicKey, String privateKey) {
+    public Reservation(String firstName, String lastName, LocalDate date, String von, String bis, String room, String remark, String participant, String publicKey, String privateKey) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.date = date;
@@ -70,11 +71,11 @@ public class Reservation {
         this.lastName = lastName;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

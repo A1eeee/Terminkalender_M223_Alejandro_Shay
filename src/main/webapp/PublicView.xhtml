@@ -10,7 +10,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
@@ -27,7 +27,7 @@
                 <p:outputLabel id="lastName" value="#{viewBean.reservation.lastName}" />
                 <p:outputLabel for="date" value="Date:" />
                 <p:outputLabel id="date" value="#{viewBean.reservation.date}">
-                    <f:convertDateTime pattern="dd.MM.yyyy" />
+                    <f:convertDateTime pattern="dd.MM.yyyy" type="localDate"/>
                 </p:outputLabel>
                 <p:outputLabel for="fromUntil" value="From - Until:" />
                 <p:outputLabel id="fromUntil" value="#{viewBean.reservation.von} - #{viewBean.reservation.bis}" />
