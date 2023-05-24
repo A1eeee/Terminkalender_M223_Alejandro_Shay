@@ -41,10 +41,10 @@ public class AddBean {
             Reservation existingReservation = iterator.next();
 
             if (existingReservation.getRoom().equals(room)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     // Fügt eine neue Reservierung hinzu
